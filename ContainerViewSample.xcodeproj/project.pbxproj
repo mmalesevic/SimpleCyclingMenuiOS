@@ -9,19 +9,31 @@
 /* Begin PBXBuildFile section */
 		CAF1D3DF20A1F254000013A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF1D3DE20A1F254000013A9 /* AppDelegate.swift */; };
 		CAF1D3E120A1F254000013A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF1D3E020A1F254000013A9 /* ViewController.swift */; };
-		CAF1D3E420A1F254000013A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAF1D3E220A1F254000013A9 /* Main.storyboard */; };
 		CAF1D3E620A1F256000013A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAF1D3E520A1F256000013A9 /* Assets.xcassets */; };
 		CAF1D3E920A1F256000013A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAF1D3E720A1F256000013A9 /* LaunchScreen.storyboard */; };
+		CAF1D3F120A1F2C4000013A9 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF1D3F020A1F2C4000013A9 /* ContainerViewController.swift */; };
+		CAF1D3F420A1F31E000013A9 /* SidePanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF1D3F220A1F31E000013A9 /* SidePanelViewController.swift */; };
+		CAF1D3F520A1F31E000013A9 /* SidePanelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAF1D3F320A1F31E000013A9 /* SidePanelViewController.xib */; };
+		CAF1D3FC20A1F3C7000013A9 /* PrimaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF1D3FA20A1F3C7000013A9 /* PrimaryViewController.swift */; };
+		CAF1D3FD20A1F3C7000013A9 /* PrimaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAF1D3FB20A1F3C7000013A9 /* PrimaryViewController.xib */; };
+		CAF1D40020A1F3D7000013A9 /* SecundaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF1D3FE20A1F3D7000013A9 /* SecundaryViewController.swift */; };
+		CAF1D40120A1F3D7000013A9 /* SecundaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAF1D3FF20A1F3D7000013A9 /* SecundaryViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CAF1D3DB20A1F254000013A9 /* ContainerViewSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContainerViewSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAF1D3DE20A1F254000013A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAF1D3E020A1F254000013A9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CAF1D3E320A1F254000013A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CAF1D3E520A1F256000013A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CAF1D3E820A1F256000013A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CAF1D3EA20A1F256000013A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CAF1D3F020A1F2C4000013A9 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		CAF1D3F220A1F31E000013A9 /* SidePanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidePanelViewController.swift; sourceTree = "<group>"; };
+		CAF1D3F320A1F31E000013A9 /* SidePanelViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SidePanelViewController.xib; sourceTree = "<group>"; };
+		CAF1D3FA20A1F3C7000013A9 /* PrimaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryViewController.swift; sourceTree = "<group>"; };
+		CAF1D3FB20A1F3C7000013A9 /* PrimaryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrimaryViewController.xib; sourceTree = "<group>"; };
+		CAF1D3FE20A1F3D7000013A9 /* SecundaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecundaryViewController.swift; sourceTree = "<group>"; };
+		CAF1D3FF20A1F3D7000013A9 /* SecundaryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecundaryViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +68,16 @@
 			children = (
 				CAF1D3DE20A1F254000013A9 /* AppDelegate.swift */,
 				CAF1D3E020A1F254000013A9 /* ViewController.swift */,
-				CAF1D3E220A1F254000013A9 /* Main.storyboard */,
 				CAF1D3E520A1F256000013A9 /* Assets.xcassets */,
 				CAF1D3E720A1F256000013A9 /* LaunchScreen.storyboard */,
 				CAF1D3EA20A1F256000013A9 /* Info.plist */,
+				CAF1D3F020A1F2C4000013A9 /* ContainerViewController.swift */,
+				CAF1D3F220A1F31E000013A9 /* SidePanelViewController.swift */,
+				CAF1D3F320A1F31E000013A9 /* SidePanelViewController.xib */,
+				CAF1D3FA20A1F3C7000013A9 /* PrimaryViewController.swift */,
+				CAF1D3FB20A1F3C7000013A9 /* PrimaryViewController.xib */,
+				CAF1D3FE20A1F3D7000013A9 /* SecundaryViewController.swift */,
+				CAF1D3FF20A1F3D7000013A9 /* SecundaryViewController.xib */,
 			);
 			path = ContainerViewSample;
 			sourceTree = "<group>";
@@ -122,9 +140,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAF1D3F520A1F31E000013A9 /* SidePanelViewController.xib in Resources */,
+				CAF1D40120A1F3D7000013A9 /* SecundaryViewController.xib in Resources */,
+				CAF1D3FD20A1F3C7000013A9 /* PrimaryViewController.xib in Resources */,
 				CAF1D3E920A1F256000013A9 /* LaunchScreen.storyboard in Resources */,
 				CAF1D3E620A1F256000013A9 /* Assets.xcassets in Resources */,
-				CAF1D3E420A1F254000013A9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,7 +155,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAF1D3F420A1F31E000013A9 /* SidePanelViewController.swift in Sources */,
 				CAF1D3E120A1F254000013A9 /* ViewController.swift in Sources */,
+				CAF1D3F120A1F2C4000013A9 /* ContainerViewController.swift in Sources */,
+				CAF1D40020A1F3D7000013A9 /* SecundaryViewController.swift in Sources */,
+				CAF1D3FC20A1F3C7000013A9 /* PrimaryViewController.swift in Sources */,
 				CAF1D3DF20A1F254000013A9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,14 +167,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CAF1D3E220A1F254000013A9 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CAF1D3E320A1F254000013A9 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CAF1D3E720A1F256000013A9 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
