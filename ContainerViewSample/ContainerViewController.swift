@@ -61,34 +61,7 @@ class ContainerViewController: UIViewController {
         contentVC.view.removeFromSuperview()
         contentVC.removeFromParentViewController()
     }
-    
-//    - (void)cycleFromViewController: (UIViewController*) oldVC
-//    toViewController: (UIViewController*) newVC {
-//    // Prepare the two view controllers for the change.
-//    [oldVC willMoveToParentViewController:nil];
-//    [self addChildViewController:newVC];
-//
-//    // Get the start frame of the new view controller and the end frame
-//    // for the old view controller. Both rectangles are offscreen.
-//    newVC.view.frame = [self newViewStartFrame];
-//    CGRect endFrame = [self oldViewEndFrame];
-//
-//    // Queue up the transition animation.
-//    [self transitionFromViewController: oldVC toViewController: newVC
-//    duration: 0.25 options:0
-//    animations:^{
-//    // Animate the views to their final positions.
-//    newVC.view.frame = oldVC.view.frame;
-//    oldVC.view.frame = endFrame;
-//    }
-//    completion:^(BOOL finished) {
-//    // Remove the old view controller and send the final
-//    // notification to the new view controller.
-//    [oldVC removeFromParentViewController];
-//    [newVC didMoveToParentViewController:self];
-//    }];
-//    }
-    
+
     func cycle(fromViewController oldVC: UIViewController, toViewController newVC: UIViewController) {
      
         oldVC.willMove(toParentViewController: nil)
