@@ -10,6 +10,12 @@ import UIKit
 
 class SecundaryViewController: UIViewController {
 
+    @IBAction func showMenu(_ sender: Any) {
+        if let safeParent: ContainerViewController = self.parent as? ContainerViewController {
+            safeParent.hideContentViewController(self)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

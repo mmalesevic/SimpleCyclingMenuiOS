@@ -56,6 +56,12 @@ class ContainerViewController: UIViewController {
         contentVC.didMove(toParentViewController: self)
     }
     
+    func hideContentViewController(_ contentVC: UIViewController) {
+        contentVC.willMove(toParentViewController: nil)
+        contentVC.view.removeFromSuperview()
+        contentVC.removeFromParentViewController()
+    }
+    
     /*
     // MARK: - Navigation
 
