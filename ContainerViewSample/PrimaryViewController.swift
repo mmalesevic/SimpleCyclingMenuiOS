@@ -10,17 +10,6 @@ import UIKit
 
 class PrimaryViewController: UIViewController {
     
-    @IBAction func showMenu(_ sender: Any) {
-        if let safeParent: ContainerViewController = self.parent?.parent as? ContainerViewController {
-            safeParent.openSidePanel(currentVC: safeParent.navControllerPrimaryVC)
-        }
-    }
-    
-    @IBAction func showDetail(_ sender: Any) {
-        let detailVC = DetailViewController(nibName: "DetailViewController", bundle: Bundle.main)
-        self.navigationController?.pushViewController(detailVC, animated: true)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,6 +20,8 @@ class PrimaryViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = menuButton;
         // hide export button in navigation bar
         self.navigationItem.leftBarButtonItem?.isEnabled = true
+        
+        self.navigationItem.title = "Primary"
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,6 +29,17 @@ class PrimaryViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @objc
+    func showMenu(_ sender: Any) {
+        if let safeParent: ContainerViewController = self.parent?.parent as? ContainerViewController {
+            safeParent.openSidePanel(currentVC: safeParent.navControllerPrimaryVC)
+        }
+    }
+    
+    @IBAction func showDetail(_ sender: Any) {
+        let detailVC = DetailViewController(nibName: "DetailViewController", bundle: Bundle.main)
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
 
     /*
     // MARK: - Navigation

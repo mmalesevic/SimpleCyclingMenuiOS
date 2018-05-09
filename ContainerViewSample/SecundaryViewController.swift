@@ -10,13 +10,6 @@ import UIKit
 
 class SecundaryViewController: UIViewController {
 
-    @objc
-    @IBAction func showMenu(_ sender: Any) {
-        if let safeParent: ContainerViewController = self.parent?.parent as? ContainerViewController {
-           safeParent.openSidePanel(currentVC: safeParent.navControllerSecundaryVC)
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,6 +23,8 @@ class SecundaryViewController: UIViewController {
         // hide export button in navigation bar
         self.navigationItem.leftBarButtonItem?.isEnabled = true
         
+        self.navigationItem.title = "Secondary"
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,6 +32,12 @@ class SecundaryViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @objc
+    func showMenu(_ sender: Any) {
+        if let safeParent: ContainerViewController = self.parent?.parent as? ContainerViewController {
+            safeParent.openSidePanel(currentVC: safeParent.navControllerPrimaryVC)
+        }
+    }
 
     /*
     // MARK: - Navigation
