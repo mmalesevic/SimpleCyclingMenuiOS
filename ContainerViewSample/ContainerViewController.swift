@@ -41,17 +41,14 @@ class ContainerViewController: UIViewController {
         navControllerPrimaryVC.navigationBar.isTranslucent = false
         navControllerPrimaryVC.didMove(toParentViewController: self)
         
-        
+        addChildViewController(sidePanelViewController)
+        view.addSubview(sidePanelViewController.view)
         
         addChildViewController(navControllerSecundaryVC)
         view.addSubview(navControllerSecundaryVC.view)
         
         addChildViewController(navControllerPrimaryVC)
         view.addSubview(navControllerPrimaryVC.view)
-        
-        addChildViewController(sidePanelViewController)
-        view.addSubview(sidePanelViewController.view)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -72,13 +69,25 @@ class ContainerViewController: UIViewController {
     }
 
     func displayContentViewController(_ contentVC: UIViewController) {
+        contentVC.view.alpha = 0.0
         contentVC.willMove(toParentViewController: self)
         
         if let safeWindow = self.view.window {
             contentVC.view.frame = safeWindow.frame
         }
+        
         view.addSubview(contentVC.view)
+        
         contentVC.didMove(toParentViewController: self)
+        
+        closeSidePanel()
+        
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: .layoutSubviews, animations: {
+            contentVC.view.alpha = 1.0
+            self.sidePanelViewController.view.alpha = 0.5
+        }) {
+            sidePanelViewController.view.alpha = 1.0
+        }
     }
     
     func anmiateSidepanel(_ targetPosition: CGFloat, completion: ((Bool) -> Void)? = nil) {
@@ -95,6 +104,8 @@ class ContainerViewController: UIViewController {
     }
     
     func openSidePanel(completion: ((Bool) -> Void)? = nil) {
+
+        view.addSubview(self.sidePanelViewController.view)
         self.anmiateSidepanel(-5, completion: completion)
     }
     
