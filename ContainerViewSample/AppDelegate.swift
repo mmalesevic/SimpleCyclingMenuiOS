@@ -21,6 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = vc
         
         self.window?.makeKeyAndVisible()
+        
+        if let safeWindow = self.window {
+            vc.sidePanelViewController.view.frame.size.height = safeWindow.frame.height
+            vc.sidePanelViewController.view.frame.size.width = safeWindow.frame.width / 6 * 5
+        }
         return true
     }
 
