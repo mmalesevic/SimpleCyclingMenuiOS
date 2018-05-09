@@ -11,8 +11,8 @@ import UIKit
 class PrimaryViewController: UIViewController {
     
     @IBAction func showMenu(_ sender: Any) {
-        if let safeParent: ContainerViewController = self.parent as? ContainerViewController {
-            safeParent.openSidePanel(currentVC: self)
+        if let safeParent: ContainerViewController = self.parent?.parent as? ContainerViewController {
+            safeParent.openSidePanel(currentVC: safeParent.navControllerPrimaryVC)
         }
     }
     
@@ -20,6 +20,12 @@ class PrimaryViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let menuButton = UIBarButtonItem(title: nil, style: UIBarButtonItemStyle.done, target: self, action: #selector(showMenu(_:)))
+        menuButton.image = UIImage(named: "burger")
+        //assign button to navigationbar
+        self.navigationItem.leftBarButtonItem = menuButton;
+        // hide export button in navigation bar
+        self.navigationItem.leftBarButtonItem?.isEnabled = true
     }
 
     override func didReceiveMemoryWarning() {

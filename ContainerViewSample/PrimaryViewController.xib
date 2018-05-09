@@ -17,19 +17,17 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ao-LY-p0I">
-                    <rect key="frame" x="183" y="323" width="8" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ao-LY-p0I">
+                    <rect key="frame" x="183" y="291" width="8" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ITe-oJ-48r">
-                    <rect key="frame" x="147" y="382" width="80" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ITe-oJ-48r">
+                    <rect key="frame" x="147" y="342" width="80" height="30"/>
                     <state key="normal" title="Show Menu"/>
                     <connections>
                         <action selector="showMenu:" destination="-1" eventType="touchUpInside" id="ZPG-Nx-5no"/>
@@ -37,6 +35,13 @@
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="3Ao-LY-p0I" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="6PX-3c-HOO"/>
+                <constraint firstItem="ITe-oJ-48r" firstAttribute="top" secondItem="3Ao-LY-p0I" secondAttribute="bottom" constant="30" id="Nkp-Wm-rxz"/>
+                <constraint firstItem="ITe-oJ-48r" firstAttribute="centerX" secondItem="3Ao-LY-p0I" secondAttribute="centerX" id="Zdh-4a-lJX"/>
+                <constraint firstItem="3Ao-LY-p0I" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="zOL-DD-kEz"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>

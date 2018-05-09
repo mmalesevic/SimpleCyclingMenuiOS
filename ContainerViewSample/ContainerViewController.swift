@@ -32,14 +32,33 @@ class ContainerViewController: UIViewController {
         addChildViewController(navControllerSecundaryVC)
         addChildViewController(navControllerPrimaryVC)
         
+        navControllerPrimaryVC.navigationBar.tintColor = UIColor.white
+        navControllerPrimaryVC.navigationBar.barTintColor = UIColor.darkGray
+        navControllerPrimaryVC.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        navControllerPrimaryVC.navigationBar.isTranslucent = false
+        navControllerPrimaryVC.didMove(toParentViewController: self)
+        
+        navControllerSecundaryVC.navigationBar.tintColor = UIColor.white
+        navControllerSecundaryVC.navigationBar.barTintColor = UIColor.darkGray
+        navControllerSecundaryVC.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        navControllerSecundaryVC.navigationBar.isTranslucent = false
         navControllerPrimaryVC.didMove(toParentViewController: self)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        if let safeWindow = self.view.window {
+            sidePanelViewController.view.frame.size.height = safeWindow.frame.height
+        }
+        
         view.addSubview(sidePanelViewController.view)
-        displayContentViewController(primaryViewController)
+        view.addSubview(navControllerSecundaryVC.view)
+        view.addSubview(navControllerPrimaryVC.view)
+        
+        navControllerPrimaryVC.didMove(toParentViewController: self)
+//        displayContentViewController(primaryViewController)
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,25 +82,7 @@ class ContainerViewController: UIViewController {
         contentVC.removeFromParentViewController()
     }
 
-    func cycle(fromViewController oldVC: UIViewController, toViewController newVC: UIViewController) {
-     
-        oldVC.willMove(toParentViewController: nil)
-        addChildViewController(newVC)
-        
-        newVC.view.frame = CGRect(x: -320, y: 0, width: 320, height: 814)
-        let endFrame: CGRect = CGRect(x: -320, y:0, width: 320, height: 814)
-        
-        self.transition(from: oldVC, to: newVC, duration: 0.25, options: .layoutSubviews, animations: {
-            newVC.view.frame = oldVC.view.frame
-            oldVC.view.frame = endFrame
-        }) { _ in
-            oldVC.removeFromParentViewController()
-            newVC.didMove(toParentViewController: self)
-        }
-    }
-    
     func anmiateSidepanel(_ targetPosition: CGFloat,currentVC oldVC: UIViewController, vcToDisplay newVC: UIViewController, completion: ((Bool) -> Void)? = nil) {
-        view.addSubview(sidePanelViewController.view)
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
             self.sidePanelViewController.view.frame.origin.x = targetPosition
             let shadowPath = UIBezierPath(rect: self.sidePanelViewController.view.bounds)
@@ -89,11 +90,11 @@ class ContainerViewController: UIViewController {
             oldVC.view.layer.shadowOpacity = 1.0
             oldVC.view.layer.shadowColor = UIColor.black.cgColor
             oldVC.view.layer.shadowPath = shadowPath.cgPath
-            //self.displayContentViewController(newVC)
         }, completion: completion)
     }
     
     func openSidePanel(currentVC oldVC: UIViewController, completion: ((Bool) -> Void)? = nil) {
+        view.addSubview(sidePanelViewController.view)
         self.anmiateSidepanel(0, currentVC: oldVC, vcToDisplay: sidePanelViewController, completion: completion)
     }
     
