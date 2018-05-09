@@ -19,18 +19,21 @@ class ContainerViewController: UIViewController {
     var navControllerSecundaryVC: UINavigationController!
     
     func setupViews() {
+        
         sidePanelViewController = SidePanelViewController()
-        addChildViewController(sidePanelViewController)
         
-        primaryViewController = PrimaryViewController(nibName: "PrimaryViewController", bundle: Bundle.main)
         secundaryViewController = SecundaryViewController(nibName: "SecundaryViewController", bundle: Bundle.main)
-        
-        
-        navControllerPrimaryVC = UINavigationController(rootViewController: primaryViewController)
         navControllerSecundaryVC = UINavigationController(rootViewController: secundaryViewController)
         
-        addChildViewController(navControllerSecundaryVC)
-        addChildViewController(navControllerPrimaryVC)
+        navControllerSecundaryVC.navigationBar.tintColor = UIColor.white
+        navControllerSecundaryVC.navigationBar.barTintColor = UIColor.darkGray
+        navControllerSecundaryVC.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        navControllerSecundaryVC.navigationBar.isTranslucent = false
+        navControllerSecundaryVC.didMove(toParentViewController: self)
+        
+        
+        primaryViewController = PrimaryViewController(nibName: "PrimaryViewController", bundle: Bundle.main)
+        navControllerPrimaryVC = UINavigationController(rootViewController: primaryViewController)
         
         navControllerPrimaryVC.navigationBar.tintColor = UIColor.white
         navControllerPrimaryVC.navigationBar.barTintColor = UIColor.darkGray
@@ -38,65 +41,65 @@ class ContainerViewController: UIViewController {
         navControllerPrimaryVC.navigationBar.isTranslucent = false
         navControllerPrimaryVC.didMove(toParentViewController: self)
         
-        navControllerSecundaryVC.navigationBar.tintColor = UIColor.white
-        navControllerSecundaryVC.navigationBar.barTintColor = UIColor.darkGray
-        navControllerSecundaryVC.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-        navControllerSecundaryVC.navigationBar.isTranslucent = false
-        navControllerPrimaryVC.didMove(toParentViewController: self)
+        
+        
+        addChildViewController(navControllerSecundaryVC)
+        view.addSubview(navControllerSecundaryVC.view)
+        
+        addChildViewController(navControllerPrimaryVC)
+        view.addSubview(navControllerPrimaryVC.view)
+        
+        addChildViewController(sidePanelViewController)
+        view.addSubview(sidePanelViewController.view)
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //as the sidepanel is added as last element to the stack, is must be hidden again by moving it out of the screen
+        sidePanelViewController.view.frame.origin.x = sidePanelViewController.view.frame.size.width * -1
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        view.addSubview(sidePanelViewController.view)
-        view.addSubview(navControllerSecundaryVC.view)
-        view.addSubview(navControllerPrimaryVC.view)
-        
+        navControllerPrimaryVC.willMove(toParentViewController: self)
         navControllerPrimaryVC.didMove(toParentViewController: self)
-//        displayContentViewController(primaryViewController)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     func displayContentViewController(_ contentVC: UIViewController) {
-        addChildViewController(contentVC)
+        contentVC.willMove(toParentViewController: self)
+        
         if let safeWindow = self.view.window {
             contentVC.view.frame = safeWindow.frame
         }
-        self.view.addSubview(contentVC.view)
+        view.addSubview(contentVC.view)
         contentVC.didMove(toParentViewController: self)
     }
     
-    func hideContentViewController(_ contentVC: UIViewController) {
-        contentVC.willMove(toParentViewController: nil)
-        contentVC.view.removeFromSuperview()
-        contentVC.removeFromParentViewController()
-    }
-
-    func anmiateSidepanel(_ targetPosition: CGFloat, currentVC oldVC: UIViewController, completion: ((Bool) -> Void)? = nil) {
+    func anmiateSidepanel(_ targetPosition: CGFloat, completion: ((Bool) -> Void)? = nil) {
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations:
             {
-                self.sidePanelViewController.view.frame.origin.x = targetPosition
                 let shadowPath = UIBezierPath(rect: self.sidePanelViewController.view.bounds)
-                oldVC.view.layer.masksToBounds = false
-                oldVC.view.layer.shadowOpacity = 0.8
-                oldVC.view.layer.shadowColor = UIColor.darkGray.cgColor
-                oldVC.view.layer.shadowPath = shadowPath.cgPath
+                self.sidePanelViewController.view.layer.masksToBounds = false
+                self.sidePanelViewController.view.layer.shadowOpacity = 0.8
+                self.sidePanelViewController.view.layer.shadowColor = UIColor.black.cgColor
+                self.sidePanelViewController.view.layer.shadowPath = shadowPath.cgPath
+                self.sidePanelViewController.view.frame.origin.x = targetPosition
+                
         }, completion: completion)
     }
     
-    func openSidePanel(currentVC oldVC: UIViewController, completion: ((Bool) -> Void)? = nil) {
-        view.addSubview(sidePanelViewController.view)
-        self.anmiateSidepanel(0, currentVC: oldVC, completion: completion)
+    func openSidePanel(completion: ((Bool) -> Void)? = nil) {
+        self.anmiateSidepanel(-5, completion: completion)
     }
     
     func closeSidePanel(completion: ((Bool) -> Void)? = nil) {
-        self.anmiateSidepanel(self.sidePanelViewController.view.frame.size.width * -1, currentVC: sidePanelViewController, completion: completion)
+        self.anmiateSidepanel(self.sidePanelViewController.view.frame.size.width * -1, completion: completion)
     }
     
 }
