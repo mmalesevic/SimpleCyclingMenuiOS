@@ -13,15 +13,20 @@ class SidePanelViewController: UIViewController {
     @IBAction func showSecundaryTouched(_ sender: Any) {
         
         if let safeParent: ContainerViewController = self.parent as? ContainerViewController {
-            //safeParent.displayContentViewController(safeParent.secundaryViewController)
-            safeParent.cycle(fromViewController: self, toViewController: safeParent.secundaryViewController)
+            safeParent.displayContentViewController(safeParent.secundaryViewController)
+            safeParent.closeSidePanel(vcToDisplay: safeParent.primaryViewController) { _ in
+                
+            }
         }
     }
     
     @IBAction func showPrimaryTouched(_ sender: Any) {
+        
         if let safeParent: ContainerViewController = self.parent as? ContainerViewController {
-            //safeParent.displayContentViewController(safeParent.primaryViewController)
-            safeParent.cycle(fromViewController: self, toViewController: safeParent.primaryViewController)
+            safeParent.displayContentViewController(safeParent.primaryViewController)
+            safeParent.closeSidePanel(vcToDisplay: safeParent.primaryViewController) { _ in
+            
+            }
         }
     }
     

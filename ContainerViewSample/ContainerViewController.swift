@@ -39,6 +39,7 @@ class ContainerViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         view.addSubview(sidePanelViewController.view)
+        displayContentViewController(primaryViewController)
     }
 
     override func didReceiveMemoryWarning() {
@@ -78,6 +79,26 @@ class ContainerViewController: UIViewController {
             newVC.didMove(toParentViewController: self)
         }
     }
-
-
+    
+    func anmiateSidepanel(_ targetPosition: CGFloat,currentVC oldVC: UIViewController, vcToDisplay newVC: UIViewController, completion: ((Bool) -> Void)? = nil) {
+        view.addSubview(sidePanelViewController.view)
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+            self.sidePanelViewController.view.frame.origin.x = targetPosition
+            let shadowPath = UIBezierPath(rect: self.sidePanelViewController.view.bounds)
+            oldVC.view.layer.masksToBounds = false
+            oldVC.view.layer.shadowOpacity = 1.0
+            oldVC.view.layer.shadowColor = UIColor.black.cgColor
+            oldVC.view.layer.shadowPath = shadowPath.cgPath
+            //self.displayContentViewController(newVC)
+        }, completion: completion)
+    }
+    
+    func openSidePanel(currentVC oldVC: UIViewController, completion: ((Bool) -> Void)? = nil) {
+        self.anmiateSidepanel(0, currentVC: oldVC, vcToDisplay: sidePanelViewController, completion: completion)
+    }
+    
+    func closeSidePanel(vcToDisplay newVC: UIViewController, completion: ((Bool) -> Void)? = nil) {
+        self.anmiateSidepanel(self.sidePanelViewController.view.frame.size.width * -1, currentVC: sidePanelViewController , vcToDisplay: newVC, completion: completion)
+    }
+    
 }

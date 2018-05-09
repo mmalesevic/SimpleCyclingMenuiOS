@@ -12,7 +12,7 @@ class SecundaryViewController: UIViewController {
 
     @IBAction func showMenu(_ sender: Any) {
         if let safeParent: ContainerViewController = self.parent as? ContainerViewController {
-            safeParent.cycle(fromViewController: self, toViewController: safeParent.sidePanelViewController)
+           safeParent.openSidePanel(currentVC: self)
         }
     }
     
