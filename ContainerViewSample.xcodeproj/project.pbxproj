@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CAE09CC920A30D0900029CD4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE09CC720A30D0900029CD4 /* DetailViewController.swift */; };
+		CAE09CCA20A30D0900029CD4 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAE09CC820A30D0900029CD4 /* DetailViewController.xib */; };
 		CAF1D3DF20A1F254000013A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF1D3DE20A1F254000013A9 /* AppDelegate.swift */; };
 		CAF1D3E120A1F254000013A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF1D3E020A1F254000013A9 /* ViewController.swift */; };
 		CAF1D3E620A1F256000013A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAF1D3E520A1F256000013A9 /* Assets.xcassets */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CAE09CC720A30D0900029CD4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		CAE09CC820A30D0900029CD4 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		CAF1D3DB20A1F254000013A9 /* ContainerViewSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContainerViewSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAF1D3DE20A1F254000013A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAF1D3E020A1F254000013A9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +82,8 @@
 				CAF1D3FB20A1F3C7000013A9 /* PrimaryViewController.xib */,
 				CAF1D3FE20A1F3D7000013A9 /* SecundaryViewController.swift */,
 				CAF1D3FF20A1F3D7000013A9 /* SecundaryViewController.xib */,
+				CAE09CC720A30D0900029CD4 /* DetailViewController.swift */,
+				CAE09CC820A30D0900029CD4 /* DetailViewController.xib */,
 			);
 			path = ContainerViewSample;
 			sourceTree = "<group>";
@@ -141,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAF1D3F520A1F31E000013A9 /* SidePanelViewController.xib in Resources */,
+				CAE09CCA20A30D0900029CD4 /* DetailViewController.xib in Resources */,
 				CAF1D40120A1F3D7000013A9 /* SecundaryViewController.xib in Resources */,
 				CAF1D3FD20A1F3C7000013A9 /* PrimaryViewController.xib in Resources */,
 				CAF1D3E920A1F256000013A9 /* LaunchScreen.storyboard in Resources */,
@@ -161,6 +168,7 @@
 				CAF1D40020A1F3D7000013A9 /* SecundaryViewController.swift in Sources */,
 				CAF1D3FC20A1F3C7000013A9 /* PrimaryViewController.swift in Sources */,
 				CAF1D3DF20A1F254000013A9 /* AppDelegate.swift in Sources */,
+				CAE09CC920A30D0900029CD4 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,7 +237,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -283,7 +291,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;

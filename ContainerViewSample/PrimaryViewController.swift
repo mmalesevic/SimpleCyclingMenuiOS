@@ -16,6 +16,11 @@ class PrimaryViewController: UIViewController {
         }
     }
     
+    @IBAction func showDetail(_ sender: Any) {
+        let detailVC = DetailViewController(nibName: "DetailViewController", bundle: Bundle.main)
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
