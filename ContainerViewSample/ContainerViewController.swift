@@ -47,6 +47,7 @@ class ContainerViewController: UIViewController {
         addChildViewController(navControllerSecundaryVC)
         view.addSubview(navControllerSecundaryVC.view)
         
+        
         addChildViewController(navControllerPrimaryVC)
         view.addSubview(navControllerPrimaryVC.view)
     }
@@ -69,29 +70,22 @@ class ContainerViewController: UIViewController {
     }
 
     func displayContentViewController(_ contentVC: UIViewController) {
-        contentVC.view.alpha = 0.0
+        
         contentVC.willMove(toParentViewController: self)
         
         if let safeWindow = self.view.window {
             contentVC.view.frame = safeWindow.frame
         }
-        
-        view.addSubview(contentVC.view)
-        
-        contentVC.didMove(toParentViewController: self)
-        
-        closeSidePanel()
-        
-        UIView.animate(withDuration: 0.3, delay: 0.0, options: .layoutSubviews, animations: {
-            contentVC.view.alpha = 1.0
-            self.sidePanelViewController.view.alpha = 0.5
-        }) {
-            sidePanelViewController.view.alpha = 1.0
-        }
+
+        self.view.insertSubview(contentVC.view, belowSubview: self.sidePanelViewController.view)
+
+        closeSidePanel() { _ in
+            self.view.bringSubview(toFront: contentVC.view)
+        }        
     }
     
     func anmiateSidepanel(_ targetPosition: CGFloat, completion: ((Bool) -> Void)? = nil) {
-        UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations:
+        UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .layoutSubviews, animations:
             {
                 let shadowPath = UIBezierPath(rect: self.sidePanelViewController.view.bounds)
                 self.sidePanelViewController.view.layer.masksToBounds = false
